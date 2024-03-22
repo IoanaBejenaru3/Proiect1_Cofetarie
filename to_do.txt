@@ -1,0 +1,3 @@
+1.trebuie sa gasesc atat produse de post cat si normale si cu alergeni
+2.trebuie sa am produse speciale minim 2 dintr-o festivitate pentru a puta face o functie care intoarce 
+  ce produse avem din acea categorie
