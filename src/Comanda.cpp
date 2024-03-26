@@ -12,6 +12,15 @@ Comanda::Comanda(const Comanda& other): pret{other.pret}, avans{other.avans}, pr
 //GETTERS
 
 //SETTERS
+void Comanda::setPret()
+{
+    this->pret=Aduna();
+}
+
+void Comanda::setAvans(const float avans)
+{
+    this->avans=avans;
+}
 
 //OPERATORI
 
@@ -24,11 +33,6 @@ float Comanda::Aduna()
     for(auto produs_special : produse_speciale)
         suma+=produs_special.getPret();
     return suma;
-}
-
-void Comanda::setPret()
-{
-    this->pret=Aduna();
 }
 
 void Comanda::AdaugaProdus(const Produs& p)

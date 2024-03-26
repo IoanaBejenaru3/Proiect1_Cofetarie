@@ -11,19 +11,23 @@ private:
     std::vector <Produs> produse;
     std::vector <ProdusSpecial> produse_speciale;
     std::vector <Comanda> comenzi;
-    int cont_bancar; //unde tin minte ce suma a incasat cofetaria pe baza comenzilor si a achizitiilor in magazin
+    float cont_bancar; //unde tin minte ce suma a incasat cofetaria pe baza comenzilor si a achizitiilor in magazin
 public:
     //CONSTRUCTOR
-    Cofetarie(std::vector <Produs> p={}, std::vector <ProdusSpecial> ps={}, std::vector <Comanda> c={}, int cb=0);
+    Cofetarie(std::vector <Produs> p={}, std::vector <ProdusSpecial> ps={}, std::vector <Comanda> c={}, float cb=0);
     //CC
     Cofetarie(const Cofetarie& other);
     //GETTERS
+    float getPret(std::string denumire);
+    int getNumar(std::string denumire);
     //SETTEERS
 
     //METODE
     void AdaugaProdus(const Produs& p);
     void AdaugaProdusSpecial(const ProdusSpecial& p);
-
+    void AdaugaComanda(const Comanda& c);
+    void AdaugaBani(float bani);
+    void ModificaProdus(std::string denumire, int nr);
     //DESTRUCTOR
     ~Cofetarie(){}
 };

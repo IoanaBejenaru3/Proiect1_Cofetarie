@@ -4,7 +4,7 @@
 #include "include/Cofetarie.h"
 #include <iostream>
 
-void PreiaComanda()
+void PreiaComanda(Cofetarie& cofetarie)
 {
     //VREM SA PRIMIM O COMANDA
     Client client;
@@ -24,7 +24,40 @@ void PreiaComanda()
         std::cin>>p;
         comanda.AdaugaProdusSpecial(p);
     }
+    //acum ca am preluat o comanda trebuie sa ii calculam pretul total si sa intrebam clientul daca doreste sa dea un avans
+    comanda.setPret();
+    std::cout<<"Avansul dat pentru comanda: ";
+    int avans;
+    std::cin>>avans;
+    comanda.setAvans(avans);
+    cofetarie.AdaugaComanda(comanda);
 }
+
+//aceasta functie simuleaza venirea unui client oarecare la cofetarie care vrea sa cumpere un produs
+//in urma acestui lucru, trebuie sa modificam numarul de produse de tipul "denumire" si sa adaugam la contul bancar al cofetariei banii castigati
+//de asemenea, trebuie sa avem grija in cazul in care numar>numarul de produse de tipul "denumire" existente in cofetarie sa ii dam doar cate exista
+//plus denumirea citita va reprezenta un produs existent in cofetarie
+void CumparareProdus(Cofetarie& cofetarie) 
+{
+    std::string denumire;
+    int numar;
+    std::cin>>denumire>>numar;
+    int cate_produse=cofetarie.getNumar(denumire);
+    if(cate_produse==0) return;
+    float pret=cofetarie.getPret(denumire);
+    if(numar > cate_produse)
+    {
+        cofetarie.ModificaProdus(denumire,cate_produse);
+        cofetarie.AdaugaBani(cate_produse*pret);
+    }
+    else
+    {
+        cofetarie.ModificaProdus(denumire,numar);
+        cofetarie.AdaugaBani(numar*pret);
+    }
+}
+
+//aceasta functie simuleaza "scoaterea unor produse din cuptor", in sensul in care mai adaugam la numarul de produse de tip "denumire"
 
 
 int main()
@@ -45,7 +78,8 @@ int main()
         std::cin>>p;
         cofetarie.AdaugaProdusSpecial(p);
     }
-
+    PreiaComanda(cofetarie);
+    //CumparareProdus(cofetarie);
 
     return 0;
 }

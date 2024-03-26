@@ -10,6 +10,7 @@ Produs::Produs(const Produs& other):denumire{other.denumire}, ingrediente_alerge
 //GETTERS
 float Produs::getPret() {return this->pret;}
 int Produs::getNumar() {return this->numar;}
+std::string Produs::getDenumire(){return this->denumire;}
 
 //OPERATORI
 Produs& Produs::operator+=(const int nr) {this->numar += nr; return *this;}

@@ -25,6 +25,7 @@ public:
     Produs(const Produs& other);
     //GETTERS
     float getPret();
+    std::string getDenumire();
     int getNumar();
     //SETTERS
 
