@@ -25,6 +25,7 @@ public:
     void AdaugaProdusSpecial(const ProdusSpecial& p);
 
     //DESTRUCTOR
+    ~Cofetarie(){}
 };
 
 #endif /*COFETARIE_H*/

@@ -6,19 +6,19 @@ Produs::Produs(std::string den, std::vector <std::string> ingr_alerg, int nr, bo
 //CC
 Produs::Produs(const Produs& other):denumire{other.denumire}, ingrediente_alergenice{other.ingrediente_alergenice}, numar{other.numar}, de_post{other.de_post}, pret{other.pret} {}
 
-float Produs::getPret() {return this->pret;}
 
+//GETTERS
+float Produs::getPret() {return this->pret;}
+int Produs::getNumar() {return this->numar;}
+
+//OPERATORI
 Produs& Produs::operator+=(const int nr) {this->numar += nr; return *this;}
 
 Produs& Produs::operator++() {this->numar += 1; return *this;}
 
-int Produs::getNumar() {return this->numar;}
-
 Produs& Produs::operator--() {this->numar--; return *this;}
 
 Produs& Produs::operator-=(const int nr) {this->numar-=nr; return *this;}
-
-
 
 std::istream& operator>>(std::istream& is, Produs& p)
 {
