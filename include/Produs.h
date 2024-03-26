@@ -12,6 +12,7 @@
 
 class Produs{
 private:
+protected:
     std::string denumire;
     std::vector <std::string> ingrediente_alergenice; 
     int numar;
@@ -19,17 +20,27 @@ private:
     float pret;
 public:
     //CONSTRUCTOR
-    Produs(std::string den="", std::vector <std::string> ingr_alerg={}, int nr=0, bool post=0, float pret=10);
+    Produs(std::string den="", std::vector <std::string> ingr_alerg={}, int nr=0, bool post=0, float pret=0);
     //CC
     Produs(const Produs& other);
     //GETTERS
     float getPret();
+    int getNumar();
     //SETTERS
 
     //SUPRAINCARCAREA OPERATORILOR
-    
-    //operatorul +
-    //Produs
+    //operatorul +=
+    Produs& operator+=(const int nr);
+    //operatorul ++
+    Produs& operator++();
+    //operatorul --
+    Produs& operator--();
+    //operatorul -=
+    Produs& operator-=(const int nr);
+    //operatorul >>
+    friend std::istream& operator>>(std::istream& is, Produs& p);
+    //operatorul <<
+    friend std::ostream& operator<<(std::ostream& os, const Produs& p);
 
     //DESTRUCTOR
     ~Produs() {std::cout<<"Destructor Produs\n";}
@@ -41,7 +52,20 @@ private:
     std::string festivitate;
     std::string perioada_valabilitate;
 public:
+    //CONSTRUCTOR
+    //ProdusSpecial(std::string den="", std::vector <std::string> ingr_alerg={}, int nr=0, bool post=0, float pret=0, std::string festivitate="", std::string perioada="");
+    //CC
 
+    //GETTERS
+    //SETTERS
+
+    //SUPRAINCARCAREA OPERATORILOR
+    friend std::istream& operator>>(std::istream& is, ProdusSpecial& p);
+    friend std::ostream& operator<<(std::ostream& os, const ProdusSpecial& p);
+    //METODE
+
+
+    //DESTRUCTOR
 };
 
 

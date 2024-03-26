@@ -1,11 +1,11 @@
 @rem 
 @echo off
-g++ -c -o src/Cofetarie.o src/Cofetarie.cpp
-g++ -c -o src/Produs.o src/Produs.cpp
-g++ -c -o src/Client.o src/Client.cpp
-g++ -c -o src/Comanda.o src/Comanda.cpp
+g++ -c -o obj/Cofetarie.o src/Cofetarie.cpp
+g++ -c -o obj/Produs.o src/Produs.cpp
+g++ -c -o obj/Client.o src/Client.cpp
+g++ -c -o obj/Comanda.o src/Comanda.cpp
 g++ -c -o main.o main.cpp
-g++ -o main main.o src/Cofetarie.o src/Produs.o src/Comanda.o src/Client.o 
+g++ -o main main.o obj/Cofetarie.o obj/Produs.o obj/Comanda.o obj/Client.o 
 main.exe
 pause
 @echo on

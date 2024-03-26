@@ -13,6 +13,18 @@ private:
     std::vector <Comanda> comenzi;
     int cont_bancar; //unde tin minte ce suma a incasat cofetaria pe baza comenzilor si a achizitiilor in magazin
 public:
+    //CONSTRUCTOR
+    Cofetarie(std::vector <Produs> p={}, std::vector <ProdusSpecial> ps={}, std::vector <Comanda> c={}, int cb=0);
+    //CC
+    Cofetarie(const Cofetarie& other);
+    //GETTERS
+    //SETTEERS
+
+    //METODE
+    void AdaugaProdus(const Produs& p);
+    void AdaugaProdusSpecial(const ProdusSpecial& p);
+
+    //DESTRUCTOR
 };
 
 #endif /*COFETARIE_H*/

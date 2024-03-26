@@ -6,8 +6,24 @@
 
 int main()
 {
-    Produs p1=Produs();
-    std::cout<<p1.getPret();
-    std::cout<<std::endl<<"Hello!";
+    // Cofetarie cofetarie=Cofetarie();
+    // int numar_produse, numar_produse_speciale;
+    // std::cin>>numar_produse>>numar_produse_speciale;
+    // for(int i=1; i<=numar_produse; i++)
+    // {
+    //     Produs p;
+    //     std::cin>>p;
+    //     cofetarie.AdaugaProdus(p);
+    // }
+    // for(int i=1; i<=numar_produse_speciale; i++)
+    // {
+    //     ProdusSpecial p;
+    //     std::cin>>p;
+    //     cofetarie.AdaugaProdusSpecial(p);
+    // }
+
+    ProdusSpecial p;
+    std::cin>>p;
+    std::cout<<p;
     return 0;
 }
