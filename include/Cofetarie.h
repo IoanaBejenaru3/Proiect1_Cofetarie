@@ -21,7 +21,7 @@ public:
     void getDenumiri();
     float getPret(std::string denumire);
     int getNumar(std::string denumire);
-    float getBani();
+    //float getBani();
     //SETTEERS
 
     //METODE

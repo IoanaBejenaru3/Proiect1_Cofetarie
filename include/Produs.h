@@ -54,9 +54,9 @@ private:
     std::string perioada_valabilitate;
 public:
     //CONSTRUCTOR
-    //ProdusSpecial(std::string den="", std::vector <std::string> ingr_alerg={}, int nr=0, bool post=0, float pret=0, std::string festivitate="", std::string perioada="");
+    ProdusSpecial(std::string den="", std::vector <std::string> ingr_alerg={}, int nr=0, bool post=0, float pret=0, std::string festivitate="", std::string perioada="");
     //CC
-    //ProdusSpecial(const ProdusSpecial& other);
+    ProdusSpecial(const ProdusSpecial& other);
     //GETTERS
     //SETTERS
 

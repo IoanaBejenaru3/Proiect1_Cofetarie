@@ -14,9 +14,9 @@ void Cofetarie::getDenumiri()
 {
     std::cout<<"Produsele disponibile in cofetarie sunt: ";
     for(auto produs: this->produse)
-        std::cout<<produs.getDenumire()<<',';
+        std::cout<<produs.getDenumire()<<", ";
       for(auto produs: this->produse_speciale)
-        std::cout<<produs.getDenumire()<<',';
+        std::cout<<produs.getDenumire()<<", ";
     std::cout<<std::endl;
 }
 
@@ -34,7 +34,7 @@ float Cofetarie::getPret(std::string denumire)
               return produs.getNumar();
  }
 
- float Cofetarie::getBani(){return this->cont_bancar;}
+/*float Cofetarie::getBani(){return this->cont_bancar;}*/
 
 //SETTERS
 
