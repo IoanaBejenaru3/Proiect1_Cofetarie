@@ -7,8 +7,8 @@
 
 class Comanda{
 private:
-    int pret;
-    int avans;
+    float pret;
+    float avans;
     std::vector <Produs> produse;
     std::vector <ProdusSpecial> produse_speciale;
     std::string data_plasarii, data_ridicarii;
@@ -17,7 +17,7 @@ private:
     float Aduna();
 public:
     //CONSTRUCTOR
-    Comanda(int p=0, int a=0, std::vector <Produs> pr={}, std::vector <ProdusSpecial> ps={}, std::string dp="", std::string dr="", Client c=Client());
+    Comanda(float p=0, float a=0, std::vector <Produs> pr={}, std::vector <ProdusSpecial> ps={}, std::string dp="", std::string dr="", Client c=Client());
     Comanda(Client c);
     //CC
     Comanda(const Comanda& other);

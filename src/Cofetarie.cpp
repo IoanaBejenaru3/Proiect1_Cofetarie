@@ -10,6 +10,15 @@ Cofetarie::Cofetarie(std::vector <Produs> p, std::vector <ProdusSpecial> ps, std
 Cofetarie::Cofetarie(const Cofetarie& other): produse{other.produse}, comenzi{other.comenzi}, produse_speciale{other.produse_speciale}, cont_bancar{other.cont_bancar} {}
 
 //GETTERS
+void Cofetarie::getDenumiri()
+{
+    std::cout<<"Produsele disponibile in cofetarie sunt: ";
+    for(auto produs: this->produse)
+        std::cout<<produs.getDenumire()<<',';
+      for(auto produs: this->produse_speciale)
+        std::cout<<produs.getDenumire()<<',';
+    std::cout<<std::endl;
+}
 
 float Cofetarie::getPret(std::string denumire)
 {
@@ -24,6 +33,8 @@ float Cofetarie::getPret(std::string denumire)
         if(produs.getDenumire()==denumire)
               return produs.getNumar();
  }
+
+ float Cofetarie::getBani(){return this->cont_bancar;}
 
 //SETTERS
 

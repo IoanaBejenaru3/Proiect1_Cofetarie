@@ -43,7 +43,7 @@ void CumparareProdus(Cofetarie& cofetarie)
     int numar;
     std::cin>>denumire>>numar;
     int cate_produse=cofetarie.getNumar(denumire);
-    if(cate_produse==0) return;
+    if(cate_produse==0) {std::cout<<"Nu mai sunt produse de acest tip momentan!"<<std::endl; return;}
     float pret=cofetarie.getPret(denumire);
     if(numar > cate_produse)
     {
@@ -58,6 +58,7 @@ void CumparareProdus(Cofetarie& cofetarie)
 }
 
 //aceasta functie simuleaza "scoaterea unor produse din cuptor", in sensul in care mai adaugam la numarul de produse de tip "denumire"
+//--
 
 
 int main()
@@ -66,20 +67,21 @@ int main()
     Cofetarie cofetarie=Cofetarie();
     int numar_produse, numar_produse_speciale;
     std::cin>>numar_produse>>numar_produse_speciale;
+    Produs p1;
     for(int i=1; i<=numar_produse; i++)
     {
-        Produs p;
-        std::cin>>p;
-        cofetarie.AdaugaProdus(p);
+        std::cin>>p1;
+        cofetarie.AdaugaProdus(p1);
     }
+    ProdusSpecial p2;
     for(int i=1; i<=numar_produse_speciale; i++)
     {
-        ProdusSpecial p;
-        std::cin>>p;
-        cofetarie.AdaugaProdusSpecial(p);
+        std::cin>>p2;
+        cofetarie.AdaugaProdusSpecial(p2);
     }
-    PreiaComanda(cofetarie);
+    cofetarie.getDenumiri();
+    //PreiaComanda(cofetarie);
     //CumparareProdus(cofetarie);
-
+    
     return 0;
 }

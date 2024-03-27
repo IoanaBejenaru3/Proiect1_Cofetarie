@@ -18,8 +18,10 @@ public:
     //CC
     Cofetarie(const Cofetarie& other);
     //GETTERS
+    void getDenumiri();
     float getPret(std::string denumire);
     int getNumar(std::string denumire);
+    float getBani();
     //SETTEERS
 
     //METODE

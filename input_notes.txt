@@ -11,19 +11,19 @@ gluten lactoza migdale nuci
 36
 0
 8.5
-CarrotCake
+Carrot Cake
 1
 gluten
 36
 1
 15
-TartaDeFructe
+Tarta de fructe
 1
 gluten
 50
 1
 7.5
-StrudelCuCiuperci
+Strudel cu ciuperci
 2
 gluten lactoza
 25
@@ -37,7 +37,7 @@ gluten lactoza nuci
 8
 8martie
 01.03.2024-30.03.2024
-StifntiDePost
+Stifnti de post
 1
 gluten
 30

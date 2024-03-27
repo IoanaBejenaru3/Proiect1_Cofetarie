@@ -4,7 +4,7 @@
 #include "../include/Cofetarie.h"
 
 //CONSTRUCTOR
-Comanda::Comanda(int p, int a, std::vector <Produs> pr, std::vector <ProdusSpecial> ps={}, std::string dp, std::string dr, Client c): pret{p}, avans{a}, produse{pr}, produse_speciale{ps}, data_plasarii{dp}, data_ridicarii{dr}, client{c} {}
+Comanda::Comanda(float p, float a, std::vector <Produs> pr, std::vector <ProdusSpecial> ps, std::string dp, std::string dr, Client c): pret{p}, avans{a}, produse{pr}, produse_speciale{ps}, data_plasarii{dp}, data_ridicarii{dr}, client{c} {}
 Comanda::Comanda(Client c) : pret{0}, avans{0}, produse{}, produse_speciale{}, data_plasarii{""}, data_ridicarii{""}, client{c} {}
 //CC
 Comanda::Comanda(const Comanda& other): pret{other.pret}, avans{other.avans}, produse{other.produse}, data_plasarii{other.data_plasarii}, data_ridicarii{other.data_ridicarii}, client{other.client} {}

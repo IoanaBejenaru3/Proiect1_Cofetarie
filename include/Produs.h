@@ -44,7 +44,7 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Produs& p);
 
     //DESTRUCTOR
-    ~Produs() {std::cout<<"Destructor Produs\n";}
+    ~Produs() {}
 
 };
 
