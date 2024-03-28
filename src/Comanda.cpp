@@ -4,12 +4,22 @@
 #include "../include/Cofetarie.h"
 
 //CONSTRUCTOR
-Comanda::Comanda(float p, float a, std::vector <Produs> pr, std::vector <ProdusSpecial> ps, std::string dp, std::string dr, Client c): pret{p}, avans{a}, produse{pr}, produse_speciale{ps}, data_plasarii{dp}, data_ridicarii{dr}, client{c} {}
-Comanda::Comanda(Client c) : pret{0}, avans{0}, produse{}, produse_speciale{}, data_plasarii{""}, data_ridicarii{""}, client{c} {}
+Comanda::Comanda(float p, float a, std::vector <Produs> pr, std::vector <ProdusSpecial> ps, bool status, Client c): pret{p}, avans{a}, produse{pr}, produse_speciale{ps}, status{status}, client{c} {}
+Comanda::Comanda(Client c) : pret{0}, avans{0}, produse{}, produse_speciale{}, status{0}, client{c} {}
 //CC
-Comanda::Comanda(const Comanda& other): pret{other.pret}, avans{other.avans}, produse{other.produse}, data_plasarii{other.data_plasarii}, data_ridicarii{other.data_ridicarii}, client{other.client} {}
+Comanda::Comanda(const Comanda& other): pret{other.pret}, avans{other.avans}, produse{other.produse}, status{other.status}, client{other.client} {}
 
 //GETTERS
+
+std::string Comanda::getNrTel()
+{
+    return this->client.getTelefon();
+}
+
+bool Comanda::getStatus()
+{
+    return this->status;
+}
 
 //SETTERS
 void Comanda::setPret()
@@ -35,6 +45,11 @@ float Comanda::Aduna()
     return suma;
 }
 
+float Comanda::Afla()
+{
+    return this->pret-this->avans;
+}
+
 void Comanda::AdaugaProdus(const Produs& p)
 {
     this->produse.push_back(p);
@@ -43,4 +58,9 @@ void Comanda::AdaugaProdus(const Produs& p)
 void Comanda::AdaugaProdusSpecial(const ProdusSpecial& p)
 {
     this->produse_speciale.push_back(p);
+}
+
+float Comanda::Diferenta()
+{
+    return Afla();
 }

@@ -28,7 +28,7 @@ public:
     std::string getDenumire();
     int getNumar();
     //SETTERS
-
+    
     //SUPRAINCARCAREA OPERATORILOR
     //operatorul +=
     Produs& operator+=(const int nr);

@@ -29,7 +29,9 @@ public:
     void AdaugaProdusSpecial(const ProdusSpecial& p);
     void AdaugaComanda(const Comanda& c);
     void AdaugaBani(float bani);
-    void ModificaProdus(std::string denumire, int nr);
+    void ModificaProdus(std::string denumire,const int nr);
+    void Cuptor(std::string denumire, const int nr);
+    float CalculeazaRestBaniComenzi(std::string nr_tel);
     //DESTRUCTOR
     ~Cofetarie(){}
 };

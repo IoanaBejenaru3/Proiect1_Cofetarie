@@ -11,18 +11,20 @@ private:
     float avans;
     std::vector <Produs> produse;
     std::vector <ProdusSpecial> produse_speciale;
-    std::string data_plasarii, data_ridicarii;
+    bool status; ///0 - preluata de client, 1 - comanda activa inca nu a fost preluata
     Client client;
 
     float Aduna();
+    float Afla();
 public:
     //CONSTRUCTOR
-    Comanda(float p=0, float a=0, std::vector <Produs> pr={}, std::vector <ProdusSpecial> ps={}, std::string dp="", std::string dr="", Client c=Client());
+    Comanda(float p=0, float a=0, std::vector <Produs> pr={}, std::vector <ProdusSpecial> ps={}, bool status=0, Client c=Client());
     Comanda(Client c);
     //CC
     Comanda(const Comanda& other);
     //GETTERS
-
+    std::string getNrTel();
+    bool getStatus();
     //SETTERS
     void setPret();
     void setAvans(const float avans);
@@ -31,6 +33,7 @@ public:
     //METODE
     void AdaugaProdus(const Produs& p);
     void AdaugaProdusSpecial(const ProdusSpecial& p);
+    float Diferenta();
     //DESTRUCTOR
     ~Comanda(){}
 };

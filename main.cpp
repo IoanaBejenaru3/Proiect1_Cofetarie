@@ -27,8 +27,9 @@ void PreiaComanda(Cofetarie& cofetarie)
     //acum ca am preluat o comanda trebuie sa ii calculam pretul total si sa intrebam clientul daca doreste sa dea un avans
     comanda.setPret();
     std::cout<<"Avansul dat pentru comanda: ";
-    int avans;
+    float avans;
     std::cin>>avans;
+    if(avans) cofetarie.AdaugaBani(avans);
     comanda.setAvans(avans);
     cofetarie.AdaugaComanda(comanda);
 }
@@ -58,8 +59,22 @@ void CumparareProdus(Cofetarie& cofetarie)
 }
 
 //aceasta functie simuleaza "scoaterea unor produse din cuptor", in sensul in care mai adaugam la numarul de produse de tip "denumire"
-//--
+void AdaugaDinCuptor(Cofetarie& cofetarie)
+{
+    std::string denumire;
+    int nr;
+    std::cin>>denumire>>nr;
+    cofetarie.Cuptor(denumire,nr);
+}
 
+//aceasta functie ii spune unui client, care vine sa preia comanda, cat trebuie sa mai plateasca (pe baza pretului si avansului dat)
+void CalculeazaRestBaniComenzi(Cofetarie& cofetarie)
+{
+   std::string nr_tel;
+   std::cin>>nr_tel;
+   float rest=cofetarie.CalculeazaRestBaniComenzi(nr_tel);
+   std::cout<<"Restul de bani pe care trebuie sa ii dati sunt: "<<rest<<" RON."<<std::endl;
+}
 
 int main()
 {
@@ -82,7 +97,7 @@ int main()
     cofetarie.getDenumiri();
     //PreiaComanda(cofetarie);
     //CumparareProdus(cofetarie);
-    
+    AdaugaDinCuptor(cofetarie);
     
     return 0;
 }

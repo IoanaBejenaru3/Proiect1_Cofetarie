@@ -2,6 +2,8 @@
 #include "../include/Comanda.h"
 #include "../include/Client.h"
 #include "../include/Cofetarie.h"
+#include <string>
+#include <locale>
 
 //CONSTRUCTOR
 Cofetarie::Cofetarie(std::vector <Produs> p, std::vector <ProdusSpecial> ps, std::vector <Comanda> c, float cb): produse{p}, produse_speciale{ps}, comenzi{c}, cont_bancar{cb} {}
@@ -24,7 +26,8 @@ float Cofetarie::getPret(std::string denumire)
 {
     for(auto produs: this->produse)
         if(produs.getDenumire()==denumire)
-              return produs.getPret();  
+              return produs.getPret();
+    return -1;  
 }
 
  int Cofetarie::getNumar(std::string denumire)
@@ -32,6 +35,7 @@ float Cofetarie::getPret(std::string denumire)
     for(auto produs: this->produse)
         if(produs.getDenumire()==denumire)
               return produs.getNumar();
+    return -1;
  }
 
 /*float Cofetarie::getBani(){return this->cont_bancar;}*/
@@ -59,9 +63,40 @@ void Cofetarie::AdaugaBani(float bani)
     this->cont_bancar+=bani;
 }
 
-void Cofetarie::ModificaProdus(std::string denumire, int nr)
+void Cofetarie::ModificaProdus(std::string denumire, const int nr)
 {
     for(auto produs: this->produse)
         if(produs.getDenumire()==denumire)
-            produs-=nr;
+            {produs-=nr; return;}
+    return;
+}
+
+std::string upper(std::string denumire)
+{
+    std::string denumire_noua;
+    denumire_noua=denumire;
+    for(char& c : denumire_noua)
+        c = std::toupper(c);
+    return denumire_noua;
+}
+
+void Cofetarie::Cuptor(std::string denumire, const int nr)
+{
+    denumire=upper(denumire);
+     for(auto produs: this->produse)
+        if(upper(produs.getDenumire())==denumire)
+            {   
+                produs+=nr;
+                return;
+            }
+    return;
+}
+
+float Cofetarie::CalculeazaRestBaniComenzi(std::string nr_tel)
+{
+    float suma=0;
+    for(auto comanda : comenzi)
+        if(comanda.getNrTel()==nr_tel && comanda.getStatus())
+                suma+=comanda.Diferenta();
+    return suma;
 }
