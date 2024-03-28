@@ -32,6 +32,11 @@ void Comanda::setAvans(const float avans)
     this->avans=avans;
 }
 
+ void Comanda::setStatus()
+ {
+    this->status=1;
+ }
+
 //OPERATORI
 
 //METODE
@@ -39,9 +44,9 @@ float Comanda::Aduna()
 {   
     float suma=0;
     for(auto produs : produse) 
-        suma+=produs.getPret();
+        suma+=produs.getPret()*produs.getNumar();
     for(auto produs_special : produse_speciale)
-        suma+=produs_special.getPret();
+        suma+=produs_special.getPret()*produs_special.getNumar();  //in cazul comenzilor numarul va reprezenta cate din acele produse vrea clientul
     return suma;
 }
 

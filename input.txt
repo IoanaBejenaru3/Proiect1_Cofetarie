@@ -1,4 +1,4 @@
-5 1
+5 2
 Ecler
 3
 gluten vanilie lactoza
@@ -37,3 +37,51 @@ gluten lactoza nuci
 8
 8martie
 01.03.YYYY-30.03.YYYY
+StifntiDePost
+1
+gluten
+30
+1
+8
+8martie
+01.03.YYYY-30.03.YYYY
+Popescu
+Ion
+0770395863
+1 1
+Amandina
+4
+gluten lactoza migdale nuci
+8
+0
+8.5
+StifntiDePost
+1
+gluten
+20
+1
+8
+8martie
+01.03.YYYY-30.03.YYYY
+128
+Popescu
+Ion
+0770395863
+1 1
+Amandina
+4
+gluten lactoza migdale nuci
+8
+0
+8.5
+StifntiDePost
+1
+gluten
+20
+1
+8
+8martie
+01.03.YYYY-30.03.YYYY
+128
+0770395863
+

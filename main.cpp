@@ -95,9 +95,10 @@ int main()
         cofetarie.AdaugaProdusSpecial(p2);
     }
     cofetarie.getDenumiri();
-    //PreiaComanda(cofetarie);
-    //CumparareProdus(cofetarie);
-    AdaugaDinCuptor(cofetarie);
-    
+    PreiaComanda(cofetarie);
+    PreiaComanda(cofetarie);
+    CalculeazaRestBaniComenzi(cofetarie);
+
+
     return 0;
 }

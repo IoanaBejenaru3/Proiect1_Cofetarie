@@ -28,6 +28,7 @@ public:
     //SETTERS
     void setPret();
     void setAvans(const float avans);
+    void setStatus();
     //OPERATORI
     //friend std::istream& operator>>(std::istream& is, Comanda& c);
     //METODE

@@ -96,7 +96,7 @@ float Cofetarie::CalculeazaRestBaniComenzi(std::string nr_tel)
 {
     float suma=0;
     for(auto comanda : comenzi)
-        if(comanda.getNrTel()==nr_tel && comanda.getStatus())
+        if(comanda.getNrTel()==nr_tel && comanda.getStatus()==0)
                 suma+=comanda.Diferenta();
     return suma;
 }
