@@ -14,20 +14,37 @@ Cofetarie::Cofetarie(const Cofetarie& other): produse{other.produse}, comenzi{ot
 //GETTERS
 void Cofetarie::getDenumiri()
 {   
-    std::cout<<"Produsele disponibile in cofetarie sunt: ";
+    std::cout << "Produsele disponibile in cofetarie sunt: " << std::endl;
     for(auto produs: this->produse)
-        std::cout<<produs.getDenumire()<<", ";
+        std::cout << "-" << produs.getDenumire() << std::endl;
       for(auto produs: this->produse_speciale)
-        std::cout<<produs.getDenumire()<<", ";
-    std::cout<<std::endl;
+        std::cout << "-" << produs.getDenumire() << std::endl;
+    std::cout << std::endl;
 }
+
+void Cofetarie::getDenumiriDePost()
+{
+    for(auto produs: this->produse)
+        if(produs.getPost()==1 && produs.getNumar())
+            std::cout << "-" << produs.getDenumire() << std::endl;
+      for(auto produs: this->produse_speciale)
+        if(produs.getPost()==1  && produs.getNumar())
+            std::cout << "-" << produs.getDenumire() << std::endl;
+    std::cout << std::endl;
+}
+
+// void Cofetarie::getDenumiriFaraAlergeni(std::vector <std::string> ingrediente)
+// {
+//     for(auto produs: this->produse)
+        
+// }
 
 float Cofetarie::getPret(std::string denumire)
 {
     for(auto produs: this->produse)
         if(produs.getDenumire()==denumire)
               return produs.getPret();
-    return -1;  
+    return -1;  //in cazul in care acel produs nu exista
 }
 
  int Cofetarie::getNumar(std::string denumire)
@@ -35,7 +52,7 @@ float Cofetarie::getPret(std::string denumire)
     for(auto produs: this->produse)
         if(produs.getDenumire()==denumire)
               return produs.getNumar();
-    return -1;
+    return -1;  //in cazul in care acel produs nu exista
  }
 
 /*float Cofetarie::getBani(){return this->cont_bancar;}*/
@@ -89,7 +106,7 @@ void Cofetarie::Cuptor(std::string denumire, const int nr)
                 produs+=nr;
                 return;
             }
-    return;
+    return; //in cazul in care acel produs nu exista
 }
 
 float Cofetarie::CalculeazaRestBaniComenzi(std::string nr_tel)

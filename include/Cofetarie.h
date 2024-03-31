@@ -19,6 +19,8 @@ public:
     Cofetarie(const Cofetarie& other);
     //GETTERS
     void getDenumiri();
+    void getDenumiriDePost();
+    void getDenumiriFaraAlergeni(std::vector <std::string> ingrediente);
     float getPret(std::string denumire);
     int getNumar(std::string denumire);
     //float getBani();
@@ -29,9 +31,10 @@ public:
     void AdaugaProdusSpecial(const ProdusSpecial& p);
     void AdaugaComanda(const Comanda& c);
     void AdaugaBani(float bani);
-    void ModificaProdus(std::string denumire,const int nr);
+    void ModificaProdus(std::string denumire, const int nr);
     void Cuptor(std::string denumire, const int nr);
     float CalculeazaRestBaniComenzi(std::string nr_tel);
+    
     //DESTRUCTOR
     ~Cofetarie(){}
 };

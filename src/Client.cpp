@@ -10,7 +10,7 @@ Client::Client(std::string nume, std::string prenume, std::string nr_tel): nume{
 Client::Client(const Client& other): nume{other.nume}, prenume{other.prenume}, numar_telefon{other.numar_telefon} {}
 
 //GETTERS
-std::string Client::getTelefon() {return this->numar_telefon;}
+std::string Client::getTelefon() { return this->numar_telefon; }
 
 //SETTERS
 
@@ -18,16 +18,16 @@ std::string Client::getTelefon() {return this->numar_telefon;}
 //OPERATORI
 std::istream& operator>>(std::istream& is, Client& c)
 {
-    is>>c.nume;
-    is>>c.prenume;
-    is>>c.numar_telefon;
+    is >> c.nume;
+    is >> c.prenume;
+    is >> c.numar_telefon;
     return is;
 }
 
 std::ostream& operator<<(std::ostream& os, const Client& c)
 {
-    os<<"Numele si prenumele clientului: "<<c.nume<<" "<<c.prenume<<std::endl;
-    os<<"Numar de telefon: "<<c.numar_telefon<<std::endl;
+    os << "Numele si prenumele clientului: " << c.nume << " " << c.prenume << std::endl;
+    os << "Numar de telefon: " << c.numar_telefon << std::endl;
     return os;
 }
 

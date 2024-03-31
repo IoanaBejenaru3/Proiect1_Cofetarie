@@ -10,20 +10,21 @@ Produs::Produs(const Produs& other):denumire{other.denumire}, ingrediente_alerge
 ProdusSpecial::ProdusSpecial(const ProdusSpecial& other): Produs(other), festivitate{other.festivitate}, perioada_valabilitate{other.perioada_valabilitate} {}
 
 //GETTERS
-float Produs::getPret() {return this->pret;}
-int Produs::getNumar() {return this->numar;}
+float Produs::getPret() { return this->pret; }
+bool Produs::getPost() { return this->de_post; }
+int Produs::getNumar() { return this->numar; }
 std::string Produs::getDenumire() { return this->denumire; }
 
 //SETTERS
 
 //OPERATORI
-Produs& Produs::operator+=(const int nr) {this->numar += nr; return *this;}
+Produs& Produs::operator+=(const int nr) { this->numar += nr; return *this; }
 
-Produs& Produs::operator++() {this->numar += 1; return *this;}
+Produs& Produs::operator++() { this->numar += 1; return *this; }
 
-Produs& Produs::operator--() {this->numar--; return *this;}
+Produs& Produs::operator--() { this->numar--; return *this; }
 
-Produs& Produs::operator-=(const int nr) {this->numar-=nr; return *this;}
+Produs& Produs::operator-=(const int nr) { this->numar-=nr; return *this; }
 
 std::istream& operator>>(std::istream& is, Produs& p)
 {
@@ -51,33 +52,33 @@ std::istream& operator>>(std::istream& is, Produs& p)
 
 std::ostream& operator<<(std::ostream& os, const Produs& p)
 {
-    os<<"Denumirea produsului este: "<<p.denumire<<std::endl;
-    os<<"Ingrdientele alergenice sunt: ";
+    os << "Denumirea produsului este: " << p.denumire << std::endl;
+    os << "Ingrdientele alergenice sunt: ";
     for(auto ingr:p.ingrediente_alergenice)
-        os<<ingr<<" ";
-    os<<std::endl;
-    os<<"Produse ramase: "<<p.numar<<std::endl;
-    if(p.de_post) os<<"Produsul este DE POST.";
-    else os<<"Produsul NU este de post.";
-    os<<std::endl;
-    os<<"Pretul produsului este "<<p.pret<<"RON/bucata.";
-    os<<std::endl;
+        os << ingr << " ";
+    os << std::endl;
+    os << "Produse ramase: " << p.numar << std::endl;
+    if(p.de_post) os << "Produsul este DE POST.";
+    else os << "Produsul NU este de post.";
+    os << std::endl;
+    os << "Pretul produsului este " << p.pret << "RON/bucata.";
+    os << std::endl;
     return os;
 }
 
 std::istream& operator>>(std::istream& is, ProdusSpecial& p)
 {
-    is>>static_cast<Produs&>(p);
+    is >> static_cast<Produs&>(p);
     is.get();
     std::getline(is, p.festivitate);
-    is>>p.perioada_valabilitate;
+    is >> p.perioada_valabilitate;
     return is;
 }
 
 std::ostream& operator<<(std::ostream& os, const ProdusSpecial& p)
 {
-    os<<static_cast<const Produs&>(p);
-    os<<"Festivitatea: "<<p.festivitate<<" pe perioada "<<p.perioada_valabilitate;
-    os<<std::endl;
+    os << static_cast<const Produs&>(p);
+    os << "Festivitatea: " << p.festivitate << " pe perioada " << p.perioada_valabilitate;
+    os << std::endl;
     return os;
 }

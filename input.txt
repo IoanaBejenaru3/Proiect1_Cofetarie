@@ -5,13 +5,13 @@ gluten vanilie lactoza
 36
 0
 12.5
-BriosaFructe
+Briosa Fructe
 5
 gluten afine lactoza migdale merisoare
 10
 0
 6
-BriosaCiocolata
+Briosa Ciocolata
 2
 gluten lactoza
 15
@@ -22,7 +22,7 @@ Negresa
 20
 1
 6
-Melc_cu_Vanilie
+Melc cu Vanilie
 3
 gluten lactoza stafide
 20
@@ -34,19 +34,19 @@ gluten lactoza migdale nuci
 36
 0
 8.5
-CarrotCake
+Carrot Cake
 1
 gluten
 36
 1
 15
-Tarta_De_Fructe
+Tarta De Fructe
 1
 gluten
 50
 1
 7.5
-Strudel_Cu_Ciuperci
+Strudel Cu Ciuperci
 2
 gluten lactoza
 25
@@ -60,7 +60,7 @@ gluten lactoza nuci
 8
 8martie
 01.03.YYYY-30.03.YYYY
-Stifnti_De_Post
+Stifnti De Post
 1
 gluten
 30
@@ -68,12 +68,14 @@ gluten
 8
 8martie
 01.03.YYYY-30.03.YYYY
-Prajitura_inima
+Prajitura inima
 3
 gluten lactoza capsuni
 0
 0
 7
+Valentine's_day
+01.02.YYYY-30.02.YYYY
 Pasca
 3
 gluten lactoza stafide
@@ -82,8 +84,6 @@ gluten lactoza stafide
 35
 Paste
 15.04.YYYY-15.05.YYYY
-Valentine's_day
-01.02.YYYY-30.02.YYYY
 Cozonac
 3
 gluten lactoza nuci

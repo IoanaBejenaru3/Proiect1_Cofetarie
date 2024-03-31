@@ -44,7 +44,7 @@ void CumparareProdus(Cofetarie& cofetarie)
     int numar;
     std::cin>>denumire>>numar;
     int cate_produse=cofetarie.getNumar(denumire);
-    if(cate_produse==0) {std::cout<<"Nu mai sunt produse de acest tip momentan!"<<std::endl; return;}
+    if(cate_produse==0) {std::cout<<"Ne pare rau. Nu mai sunt produse de acest tip momentan!"<<std::endl; return;}
     float pret=cofetarie.getPret(denumire);
     if(numar > cate_produse)
     {
@@ -76,11 +76,21 @@ void CalculeazaRestBaniComenzi(Cofetarie& cofetarie)
    std::cout<<"Restul de bani pe care trebuie sa ii dati sunt: "<<rest<<" RON."<<std::endl;
 }
 
-//aceasta functie este pentru a-i prezenta clientului produsele care sunt de post si sunt valabile in cofetarie (adicca numar!=0)
+//aceasta functie este pentru a-i prezenta clientului produsele care sunt de post si sunt valabile in cofetarie (adica numar!=0)
+void AfiseazaProduseDepost(Cofetarie& cofetarie)
+{
+    std::cout << "Produsele de post disponibile in cofetarie sunt: " << std::endl;
+    cofetarie.getDenumiriDePost();
+}
 
+//aceasta functie este pentru a-i prezenta clientului produsele care nu contin anumite ingrediente alergenice
+// void AfiseazaProduseFaraAlergeni(std::vector <std::string> ingrdiente, Cofetarie& cofetarie)
+// {
+//     std::cout << "Produsele disponibile in cofetarie care nu contin alergenii mentionati:" << std::endl;
+//     cofetarie.
+// }
 
-
-//aceasta funtie este pentru a-i prezenta clientului produsele care nu contin anumite ingrediente alergenice
+//aceasta functie ii arata clientului ce produse avem in perioade festive
 
 
 
