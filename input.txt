@@ -1,10 +1,33 @@
-5 2
+9 5
 Ecler
 3
 gluten vanilie lactoza
 36
 0
 12.5
+BriosaFructe
+5
+gluten afine lactoza migdale merisoare
+10
+0
+6
+BriosaCiocolata
+2
+gluten lactoza
+15
+0
+6
+Negresa
+0
+20
+1
+6
+Melc_cu_Vanilie
+3
+gluten lactoza stafide
+20
+0
+5.5
 Amandina
 4
 gluten lactoza migdale nuci
@@ -17,13 +40,13 @@ gluten
 36
 1
 15
-TartaDeFructe
+Tarta_De_Fructe
 1
 gluten
 50
 1
 7.5
-StrudelCuCiuperci
+Strudel_Cu_Ciuperci
 2
 gluten lactoza
 25
@@ -37,7 +60,7 @@ gluten lactoza nuci
 8
 8martie
 01.03.YYYY-30.03.YYYY
-StifntiDePost
+Stifnti_De_Post
 1
 gluten
 30
@@ -45,6 +68,30 @@ gluten
 8
 8martie
 01.03.YYYY-30.03.YYYY
+Prajitura_inima
+3
+gluten lactoza capsuni
+0
+0
+7
+Pasca
+3
+gluten lactoza stafide
+0
+0
+35
+Paste
+15.04.YYYY-15.05.YYYY
+Valentine's_day
+01.02.YYYY-30.02.YYYY
+Cozonac
+3
+gluten lactoza nuci
+0
+0
+40
+Craciun
+01.12.YYYY-10.01.YYYY
 Popescu
 Ion
 0770395863
@@ -84,4 +131,5 @@ gluten
 01.03.YYYY-30.03.YYYY
 128
 0770395863
+
 

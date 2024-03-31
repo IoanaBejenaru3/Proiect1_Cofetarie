@@ -13,7 +13,7 @@ Cofetarie::Cofetarie(const Cofetarie& other): produse{other.produse}, comenzi{ot
 
 //GETTERS
 void Cofetarie::getDenumiri()
-{
+{   
     std::cout<<"Produsele disponibile in cofetarie sunt: ";
     for(auto produs: this->produse)
         std::cout<<produs.getDenumire()<<", ";
@@ -96,7 +96,7 @@ float Cofetarie::CalculeazaRestBaniComenzi(std::string nr_tel)
 {
     float suma=0;
     for(auto comanda : comenzi)
-        if(comanda.getNrTel()==nr_tel && comanda.getStatus()==0)
+        if(comanda.getNrTel()==nr_tel && comanda.getStatus()==1)
                 suma+=comanda.Diferenta();
     return suma;
 }

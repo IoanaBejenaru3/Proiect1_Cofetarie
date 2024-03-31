@@ -76,12 +76,22 @@ void CalculeazaRestBaniComenzi(Cofetarie& cofetarie)
    std::cout<<"Restul de bani pe care trebuie sa ii dati sunt: "<<rest<<" RON."<<std::endl;
 }
 
+//aceasta functie este pentru a-i prezenta clientului produsele care sunt de post si sunt valabile in cofetarie (adicca numar!=0)
+
+
+
+//aceasta funtie este pentru a-i prezenta clientului produsele care nu contin anumite ingrediente alergenice
+
+
+
+
 int main()
 {
     //CEEA CE AVEM IN COFETARIE
     Cofetarie cofetarie=Cofetarie();
     int numar_produse, numar_produse_speciale;
-    std::cin>>numar_produse>>numar_produse_speciale;
+    std::cin >> numar_produse >> numar_produse_speciale;
+    
     Produs p1;
     for(int i=1; i<=numar_produse; i++)
     {
@@ -89,16 +99,12 @@ int main()
         cofetarie.AdaugaProdus(p1);
     }
     ProdusSpecial p2;
-    for(int i=1; i<=numar_produse_speciale; i++)
+    for(int i = 1; i <= numar_produse_speciale; i++)
     {
         std::cin>>p2;
         cofetarie.AdaugaProdusSpecial(p2);
     }
     cofetarie.getDenumiri();
-    PreiaComanda(cofetarie);
-    PreiaComanda(cofetarie);
-    CalculeazaRestBaniComenzi(cofetarie);
-
 
     return 0;
 }

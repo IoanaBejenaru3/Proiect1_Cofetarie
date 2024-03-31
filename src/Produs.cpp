@@ -1,5 +1,7 @@
 #include "../include/Produs.h"
-
+#include <cstring>
+#define BUF_SIZE 256 // Stil C
+// constexpr int BUF_SIZE = 256; // stil C++11 sau C++14
 //CONSTRUCTORI
 Produs::Produs(std::string den, std::vector <std::string> ingr_alerg, int nr, bool post, float pret): denumire{den}, ingrediente_alergenice{ingr_alerg}, numar{nr}, de_post{post}, pret{pret} {}
 ProdusSpecial::ProdusSpecial(std::string den, std::vector <std::string> ingr_alerg, int nr, bool post, float pret, std::string festivitate, std::string perioada):  Produs(den, ingr_alerg, nr, post, pret), festivitate{festivitate}, perioada_valabilitate{perioada} {}
@@ -10,7 +12,7 @@ ProdusSpecial::ProdusSpecial(const ProdusSpecial& other): Produs(other), festivi
 //GETTERS
 float Produs::getPret() {return this->pret;}
 int Produs::getNumar() {return this->numar;}
-std::string Produs::getDenumire(){return this->denumire;}
+std::string Produs::getDenumire() { return this->denumire; }
 
 //SETTERS
 
@@ -27,16 +29,23 @@ std::istream& operator>>(std::istream& is, Produs& p)
 {
     int numar_ingrediente;
     std::string ing;
-    is>>p.denumire;
-    is>>numar_ingrediente;
-    for(int i=1; i<=numar_ingrediente; i++)
+    // char denumire[BUF_SIZE];
+    // denumire[BUF_SIZE-1] = '\0';
+    // fgets(denumire, BUF_SIZE-1, stdin);
+    // denumire[strlen(denumire)-1] = '\0';
+    // printf("Denumire = %s\n", denumire);
+    is.get(); // ignore \n
+    std::getline(is, p.denumire);
+    is >> numar_ingrediente;
+    for(int i = 0; i < numar_ingrediente; i++)
     {
-        is>>ing;
+        is >> ing;
         p.ingrediente_alergenice.push_back(ing);
     }
     is>>p.numar;
     is>>p.de_post;
     is>>p.pret;
+    //printf("numar = %d\tde_post = %d\tpret = %.2f\n", p.numar, p.de_post, p.pret);
     return is;
 }
 
@@ -59,7 +68,8 @@ std::ostream& operator<<(std::ostream& os, const Produs& p)
 std::istream& operator>>(std::istream& is, ProdusSpecial& p)
 {
     is>>static_cast<Produs&>(p);
-    is>>p.festivitate;
+    is.get();
+    std::getline(is, p.festivitate);
     is>>p.perioada_valabilitate;
     return is;
 }

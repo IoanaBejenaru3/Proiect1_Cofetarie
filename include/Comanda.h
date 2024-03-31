@@ -18,7 +18,7 @@ private:
     float Afla();
 public:
     //CONSTRUCTOR
-    Comanda(float p=0, float a=0, std::vector <Produs> pr={}, std::vector <ProdusSpecial> ps={}, bool status=0, Client c=Client());
+    Comanda(float p=0, float a=0, std::vector <Produs> pr={}, std::vector <ProdusSpecial> ps={}, bool status=1, Client c=Client());
     Comanda(Client c);
     //CC
     Comanda(const Comanda& other);
