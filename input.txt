@@ -61,8 +61,8 @@ gluten lactoza nuci
 8martie
 01.03.YYYY-30.03.YYYY
 Stifnti De Post
-1
-gluten
+2
+gluten nuci
 30
 1
 8
@@ -92,44 +92,9 @@ gluten lactoza nuci
 40
 Craciun
 01.12.YYYY-10.01.YYYY
-Popescu
-Ion
-0770395863
-1 1
-Amandina
-4
-gluten lactoza migdale nuci
-8
+Briosa Fructe
+5
+gluten afine lactoza migdale merisoare
+10
 0
-8.5
-StifntiDePost
-1
-gluten
-20
-1
-8
-8martie
-01.03.YYYY-30.03.YYYY
-128
-Popescu
-Ion
-0770395863
-1 1
-Amandina
-4
-gluten lactoza migdale nuci
-8
-0
-8.5
-StifntiDePost
-1
-gluten
-20
-1
-8
-8martie
-01.03.YYYY-30.03.YYYY
-128
-0770395863
-
-
+6

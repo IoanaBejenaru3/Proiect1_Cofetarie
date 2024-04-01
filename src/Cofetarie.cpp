@@ -33,11 +33,30 @@ void Cofetarie::getDenumiriDePost()
     std::cout << std::endl;
 }
 
-// void Cofetarie::getDenumiriFaraAlergeni(std::vector <std::string> ingrediente)
-// {
-//     for(auto produs: this->produse)
-        
-// }
+void Cofetarie::getDenumiriFaraAlergeni(std::vector <std::string> ingrediente)
+{
+    for(auto produs: this->produse)
+    {
+        if(produs.TestAlergeni(ingrediente) == 1)
+          {
+            std::cout << "-" << produs.getDenumire();
+            if(produs.getNumar() != 0) std::cout << " : valabil in cofetarie.";
+            else std::cout <<" disponibil prin comanda.";
+            std::cout << std::endl;
+          }
+    }
+    for(auto produs: this->produse_speciale)
+    {
+        if(produs.TestAlergeni(ingrediente) == 1)
+          {
+            std::cout << "-" << produs.getDenumire();
+            if(produs.getNumar() != 0) std::cout << " : valabil in cofetarie.";
+            else std::cout <<" : disponibil prin comanda.";
+            std::cout << std::endl;
+          }
+    }
+    std::cout << std::endl;
+}
 
 float Cofetarie::getPret(std::string denumire)
 {

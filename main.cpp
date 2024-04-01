@@ -73,7 +73,7 @@ void CalculeazaRestBaniComenzi(Cofetarie& cofetarie)
    std::string nr_tel;
    std::cin>>nr_tel;
    float rest=cofetarie.CalculeazaRestBaniComenzi(nr_tel);
-   std::cout<<"Restul de bani pe care trebuie sa ii dati sunt: "<<rest<<" RON."<<std::endl;
+   std::cout<<"Restul de bani pe care trebuie sa il dati este: "<<rest<<" RON."<<std::endl;
 }
 
 //aceasta functie este pentru a-i prezenta clientului produsele care sunt de post si sunt valabile in cofetarie (adica numar!=0)
@@ -84,11 +84,20 @@ void AfiseazaProduseDepost(Cofetarie& cofetarie)
 }
 
 //aceasta functie este pentru a-i prezenta clientului produsele care nu contin anumite ingrediente alergenice
-// void AfiseazaProduseFaraAlergeni(std::vector <std::string> ingrdiente, Cofetarie& cofetarie)
-// {
-//     std::cout << "Produsele disponibile in cofetarie care nu contin alergenii mentionati:" << std::endl;
-//     cofetarie.
-// }
+void AfiseazaProduseFaraAlergeni(std::vector <std::string> ingrediente, Cofetarie& cofetarie)
+{
+    // int n;
+    // std::string denumire;
+    // std::vector <std::string> ingrediente;
+    // std::cin >> n;
+    // for(int i=0; i<n; i++)
+    //     {
+    //         std::cin >> denumire;
+    //         ingrediente.push_back(denumire);
+    //     }
+    std::cout << "Produsele disponibile in cofetarie care nu contin alergenii mentionati:" << std::endl;
+    cofetarie.getDenumiriFaraAlergeni(ingrediente);
+}
 
 //aceasta functie ii arata clientului ce produse avem in perioade festive
 
@@ -102,19 +111,25 @@ int main()
     int numar_produse, numar_produse_speciale;
     std::cin >> numar_produse >> numar_produse_speciale;
     
-    Produs p1;
     for(int i=1; i<=numar_produse; i++)
     {
+        Produs p1;
         std::cin>>p1;
         cofetarie.AdaugaProdus(p1);
     }
-    ProdusSpecial p2;
     for(int i = 1; i <= numar_produse_speciale; i++)
     {
+        ProdusSpecial p2;
         std::cin>>p2;
         cofetarie.AdaugaProdusSpecial(p2);
     }
     cofetarie.getDenumiri();
-
+    // p1=Produs();
+    // std::cin >> p1;
+    // std::cout <<p1;
+    // std::cout << p1.TestAlergeni({"nuci"}) << p1.getDenumire();
+    AfiseazaProduseFaraAlergeni({"nuci"}, cofetarie);
+    // std::cin >> p2;
+    // std::cout << p2.TestAlergeni({"nuci"}) << p2.getDenumire();
     return 0;
 }

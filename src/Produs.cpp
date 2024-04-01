@@ -82,3 +82,14 @@ std::ostream& operator<<(std::ostream& os, const ProdusSpecial& p)
     os << std::endl;
     return os;
 }
+
+//METODE
+
+bool Produs::TestAlergeni(std::vector <std::string> alergeni) 
+{
+    for(auto ingredient : alergeni)
+       for(auto ingredient2 : this->ingrediente_alergenice) 
+            if(ingredient == ingredient2)
+                return 0;
+    return 1;
+}

@@ -18,6 +18,7 @@ protected:
     int numar;
     bool de_post;
     float pret;
+
 public:
     //CONSTRUCTOR
     Produs(std::string den="", std::vector <std::string> ingr_alerg={}, int nr=0, bool post=0, float pret=0);
@@ -44,6 +45,8 @@ public:
     //operatorul <<
     friend std::ostream& operator<<(std::ostream& os, const Produs& p);
 
+    //METODE
+    bool TestAlergeni(std::vector <std::string> alergeni);
     //DESTRUCTOR
     ~Produs() {}
 
