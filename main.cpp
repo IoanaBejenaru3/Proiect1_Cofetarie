@@ -6,31 +6,45 @@
 
 void PreiaComanda(Cofetarie& cofetarie)
 {
+    std::cout << "Pentru a va prelua comanda avem nevoie de:" << std::endl;
+
     //VREM SA PRIMIM O COMANDA
     Client client;
+    std::string denumire;
+
     std::cin>>client;
     Comanda comanda={client}; //am construit comanda doar cu clientul si urmeaza sa adaugam detaliile comenzii si sa le calculam
-    int numar_produse, numar_produse_speciale;
-    std::cin>>numar_produse>>numar_produse_speciale;
-    for(int i=1; i<=numar_produse; i++)
+    int numar_produse, numar_produse_speciale, numar;
+    std::cout << "Numarul de produse si de produse speciale in aceasta ordine: " << std::endl;
+    std::cin >> numar_produse >> numar_produse_speciale;
+    for(int i=0; i<numar_produse; i++)
     {
-        Produs p;
-        std::cin>>p;
+        std::cout << "Denumire: ";
+        std::cin >> denumire;
+        std::cout << "Numar:";
+        std::cin >> numar;
+        Produs p = cofetarie.GasesteProdus(denumire);
+        p.setNumar(numar);
         comanda.AdaugaProdus(p);
     }
-    for(int i=1; i<=numar_produse_speciale; i++)
+    for(int i=0; i<numar_produse_speciale; i++)
     {
-        ProdusSpecial p;
-        std::cin>>p;
+        std::cout << "Denumire: ";
+        std::cin >> denumire;
+        std::cout << "Numar:";
+        std::cin >> numar;
+        ProdusSpecial p = cofetarie.GasesteProdusSpecial(denumire);
+        p.setNumar(numar);
         comanda.AdaugaProdusSpecial(p);
     }
     //acum ca am preluat o comanda trebuie sa ii calculam pretul total si sa intrebam clientul daca doreste sa dea un avans
     comanda.setPret();
-    std::cout<<"Avansul dat pentru comanda: ";
+    std::cout << "Pretul comenzii este " << comanda.getPret() << " RON. " << "Avansul dat de dumneavoastra este: ";
     float avans;
-    std::cin>>avans;
+    std::cin >> avans;
     if(avans) cofetarie.AdaugaBani(avans);
     comanda.setAvans(avans);
+    comanda.setStatus();
     cofetarie.AdaugaComanda(comanda);
 }
 
@@ -84,24 +98,37 @@ void AfiseazaProduseDepost(Cofetarie& cofetarie)
 }
 
 //aceasta functie este pentru a-i prezenta clientului produsele care nu contin anumite ingrediente alergenice
-void AfiseazaProduseFaraAlergeni(std::vector <std::string> ingrediente, Cofetarie& cofetarie)
+void AfiseazaProduseFaraAlergeni(Cofetarie& cofetarie)
 {
-    // int n;
-    // std::string denumire;
-    // std::vector <std::string> ingrediente;
-    // std::cin >> n;
-    // for(int i=0; i<n; i++)
-    //     {
-    //         std::cin >> denumire;
-    //         ingrediente.push_back(denumire);
-    //     }
+    int n;
+    std::string denumire;
+    std::vector <std::string> ingrediente;
+    std::cin >> n;
+    for(int i=0; i<n; i++)
+        {
+            std::cin >> denumire;
+            ingrediente.push_back(denumire);
+        }
     std::cout << "Produsele disponibile in cofetarie care nu contin alergenii mentionati:" << std::endl;
     cofetarie.getDenumiriFaraAlergeni(ingrediente);
 }
 
 //aceasta functie ii arata clientului ce produse avem in perioade festive
 
-
+void AfiseazaProduseFestive(Cofetarie& cofetarie)
+{
+    int n;
+    std::string denumire;
+    std::vector <std::string> sarbatori;
+    std::cin >> n;
+    for(int i=0; i<n; i++)
+        {
+            std::cin >> denumire;
+            sarbatori.push_back(denumire);
+        }
+    std::cout << "Produsele disponibile in cofetarie care se gasesc de aceste sarbatori:" << std::endl;
+    cofetarie.getDenumiriProduseFestive(sarbatori);
+}
 
 
 int main()
@@ -110,7 +137,6 @@ int main()
     Cofetarie cofetarie=Cofetarie();
     int numar_produse, numar_produse_speciale;
     std::cin >> numar_produse >> numar_produse_speciale;
-    
     for(int i=1; i<=numar_produse; i++)
     {
         Produs p1;
@@ -124,12 +150,7 @@ int main()
         cofetarie.AdaugaProdusSpecial(p2);
     }
     cofetarie.getDenumiri();
-    // p1=Produs();
-    // std::cin >> p1;
-    // std::cout <<p1;
-    // std::cout << p1.TestAlergeni({"nuci"}) << p1.getDenumire();
-    AfiseazaProduseFaraAlergeni({"nuci"}, cofetarie);
-    // std::cin >> p2;
-    // std::cout << p2.TestAlergeni({"nuci"}) << p2.getDenumire();
+    PreiaComanda(cofetarie);
+    std::cout << cofetarie.CalculeazaRestBaniComenzi("0754562071");
     return 0;
 }

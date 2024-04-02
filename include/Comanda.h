@@ -24,13 +24,13 @@ public:
     Comanda(const Comanda& other);
     //GETTERS
     std::string getNrTel();
+    float getPret();
     bool getStatus();
     //SETTERS
     void setPret();
     void setAvans(const float avans);
     void setStatus();
     //OPERATORI
-    //friend std::istream& operator>>(std::istream& is, Comanda& c);
     //METODE
     void AdaugaProdus(const Produs& p);
     void AdaugaProdusSpecial(const ProdusSpecial& p);

@@ -30,7 +30,7 @@ public:
     std::string getDenumire();
     int getNumar();
     //SETTERS
-    
+    void setNumar(const int nr);
     //SUPRAINCARCAREA OPERATORILOR
     //operatorul +=
     Produs& operator+=(const int nr);
@@ -62,13 +62,13 @@ public:
     //CC
     ProdusSpecial(const ProdusSpecial& other);
     //GETTERS
+    std::string getFestivitate();
     //SETTERS
 
     //SUPRAINCARCAREA OPERATORILOR
     friend std::istream& operator>>(std::istream& is, ProdusSpecial& p);
     friend std::ostream& operator<<(std::ostream& os, const ProdusSpecial& p);
     //METODE
-
 
     //DESTRUCTOR
     ~ProdusSpecial(){}

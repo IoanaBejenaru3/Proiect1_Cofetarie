@@ -18,9 +18,15 @@ std::string Client::getTelefon() { return this->numar_telefon; }
 //OPERATORI
 std::istream& operator>>(std::istream& is, Client& c)
 {
+    std::cout << "Nume: ";
     is >> c.nume;
+    std::cout << std::endl;
+    std::cout << "Prenume: ";
     is >> c.prenume;
+    std::cout << std::endl;
+    std::cout << "Numar de telefon: ";
     is >> c.numar_telefon;
+    std::cout << std::endl;
     return is;
 }
 

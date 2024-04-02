@@ -15,7 +15,10 @@ bool Produs::getPost() { return this->de_post; }
 int Produs::getNumar() { return this->numar; }
 std::string Produs::getDenumire() { return this->denumire; }
 
+std::string ProdusSpecial::getFestivitate() { return this->festivitate; }
+
 //SETTERS
+void Produs::setNumar(const int nr) { this->numar = nr; }
 
 //OPERATORI
 Produs& Produs::operator+=(const int nr) { this->numar += nr; return *this; }

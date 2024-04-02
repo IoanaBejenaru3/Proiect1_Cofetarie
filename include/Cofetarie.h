@@ -20,6 +20,7 @@ public:
     //GETTERS
     void getDenumiri();
     void getDenumiriDePost();
+    void getDenumiriProduseFestive(std::vector <std::string> sarbatori);
     void getDenumiriFaraAlergeni(std::vector <std::string> ingrediente);
     float getPret(std::string denumire);
     int getNumar(std::string denumire);
@@ -34,7 +35,8 @@ public:
     void ModificaProdus(std::string denumire, const int nr);
     void Cuptor(std::string denumire, const int nr);
     float CalculeazaRestBaniComenzi(std::string nr_tel);
-    
+    Produs GasesteProdus(std::string denumire);
+    ProdusSpecial GasesteProdusSpecial(std::string denumire);
     //DESTRUCTOR
     ~Cofetarie(){}
 };

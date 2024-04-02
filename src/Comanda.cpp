@@ -16,6 +16,8 @@ std::string Comanda::getNrTel()
     return this->client.getTelefon();
 }
 
+float Comanda::getPret() { return this->pret; }
+
 bool Comanda::getStatus()
 {
     return this->status;

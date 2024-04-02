@@ -33,6 +33,14 @@ void Cofetarie::getDenumiriDePost()
     std::cout << std::endl;
 }
 
+void Cofetarie::getDenumiriProduseFestive(std::vector <std::string> sarbatori)
+{
+    for(auto produs : this->produse_speciale)
+        for(auto denumire : sarbatori)
+            if(produs.getFestivitate() == denumire)
+                { std::cout << "-" << produs.getDenumire() << " : " << denumire << std::endl;}
+}
+
 void Cofetarie::getDenumiriFaraAlergeni(std::vector <std::string> ingrediente)
 {
     for(auto produs: this->produse)
@@ -135,4 +143,22 @@ float Cofetarie::CalculeazaRestBaniComenzi(std::string nr_tel)
         if(comanda.getNrTel()==nr_tel && comanda.getStatus()==1)
                 suma+=comanda.Diferenta();
     return suma;
+}
+
+Produs Cofetarie::GasesteProdus(std::string denumire)
+{
+    Produs p;
+    for(auto produs : produse)
+        if(upper(produs.getDenumire()) == upper(denumire))
+            return produs;
+    return p;
+}
+
+ProdusSpecial Cofetarie::GasesteProdusSpecial(std::string denumire)
+{
+    ProdusSpecial p;
+    for(auto produs : produse_speciale)
+        if(upper(produs.getDenumire()) == upper(denumire))
+            return produs;
+    return p;
 }
