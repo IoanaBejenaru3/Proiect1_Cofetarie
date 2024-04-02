@@ -133,16 +133,16 @@ void Cofetarie::ModificaProdus(std::string denumire, const int nr)
 void Cofetarie::Cuptor(std::string denumire, const int nr)
 {
     denumire = upper(denumire);
-    for(auto produs : this->produse)
-        if(upper(produs.getDenumire()) == denumire)
+    for(int i=0; i<this->produse.size(); i++)
+        if(upper(produse[i].getDenumire()) == denumire)
             {   
-                produs.setNumar(produs.getNumar()+nr);
+                produse[i]+=nr;
                 return;
             }
-    for(auto produs : this->produse_speciale)
-        if(upper(produs.getDenumire()) == denumire)
+    for(int i=0; i < this->produse_speciale.size(); i++)
+        if(upper(produse_speciale[i].getDenumire()) == denumire)
             {   
-                produs+=nr;
+                produse_speciale[i]+=nr;
                 return;
             }
     return; //in cazul in care acel produs nu exista

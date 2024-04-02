@@ -147,7 +147,7 @@ int main()
     Cofetarie cofetarie=Cofetarie();
     int numar_produse, numar_produse_speciale;
     std::cin >> numar_produse >> numar_produse_speciale;
-    for(int i=1; i<=numar_produse; i++)
+    for(int i = 1; i <= numar_produse; i++)
     {
         Produs p1;
         std::cin>>p1;
@@ -162,9 +162,7 @@ int main()
     cofetarie.getDenumiri();
     //PreiaComanda(cofetarie);
     //CumparareProdus(cofetarie);
-    std::cout<< "Aici" << cofetarie.getNumar("Ecler");
-    AdaugaDinCuptor(cofetarie);
-    std::cout<< "AICI" << cofetarie.getNumar("Ecler");
+    //AdaugaDinCuptor(cofetarie);
     //CalculeazaRestBaniComenzi(cofetarie);
     //AfiseazaProduseDePost(cofetarie);
     //AfiseazaProduseFaraAlergeni(cofetarie);
