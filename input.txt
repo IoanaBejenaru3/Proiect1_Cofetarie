@@ -1,4 +1,10 @@
-9 5
+10 7
+Red Velvet Slice
+3
+gluten vanilie lactoza
+20
+0
+11.5
 Ecler
 3
 gluten vanilie lactoza
@@ -92,3 +98,20 @@ gluten lactoza nuci
 40
 Craciun
 01.12.YYYY-10.01.YYYY
+Cornulete cu rahat
+2
+gluten lactoza
+0
+0
+30
+Craciun
+01.12.YYYY-10.01.YYYY
+Panettone
+3
+gluten lactoza portocale
+0
+0
+40
+Craciun
+01.12.YYYY-10.01.YYYY
+

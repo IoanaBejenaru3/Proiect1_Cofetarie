@@ -115,8 +115,8 @@ void Cofetarie::ModificaProdus(std::string denumire, const int nr)
     return;
 }
 
-std::string upper(std::string denumire)
-{
+std::string upper(std::string denumire)  //aceasta functie evita erori: daca un citim de la tastatura amandina si produsul este salvat ca "Amandina"
+{                                        //functia upper ne ajuta sa le vedem pe ambele ca fiind egale prin transformarea tuturor caracterelor in majuscule
     std::string denumire_noua;
     denumire_noua=denumire;
     for(char& c : denumire_noua)
@@ -156,9 +156,22 @@ Produs Cofetarie::GasesteProdus(std::string denumire)
 
 ProdusSpecial Cofetarie::GasesteProdusSpecial(std::string denumire)
 {
+    denumire = upper(denumire);
     ProdusSpecial p;
     for(auto produs : produse_speciale)
-        if(upper(produs.getDenumire()) == upper(denumire))
+        if(upper(produs.getDenumire()) == denumire)
             return produs;
     return p;
+}
+
+void Cofetarie::ModficarePret(std::string denumire, const float nr)
+{
+    denumire = upper(denumire);
+    for(auto produs : produse)
+        if(upper(produs.getDenumire()) == denumire)
+            produs.setPret(nr);
+    for(auto produs : produse_speciale)
+        if(upper(produs.getDenumire()) == denumire)
+            produs.setPret(nr);
+    return;
 }

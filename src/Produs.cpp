@@ -18,7 +18,8 @@ std::string Produs::getDenumire() { return this->denumire; }
 std::string ProdusSpecial::getFestivitate() { return this->festivitate; }
 
 //SETTERS
-void Produs::setNumar(const int nr) { this->numar = nr; }
+
+void Produs::setPret(const float nr) { this->pret = nr; }
 
 //OPERATORI
 Produs& Produs::operator+=(const int nr) { this->numar += nr; return *this; }

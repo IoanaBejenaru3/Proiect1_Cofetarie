@@ -24,7 +24,7 @@ void PreiaComanda(Cofetarie& cofetarie)
         std::cout << "Numar:";
         std::cin >> numar;
         Produs p = cofetarie.GasesteProdus(denumire);
-        p.setNumar(numar);
+        p+=numar; //ne folosim de operatorul supraincarcat pentru a evita definirea si utilizarea unui setter
         comanda.AdaugaProdus(p);
     }
     for(int i=0; i<numar_produse_speciale; i++)
@@ -34,7 +34,7 @@ void PreiaComanda(Cofetarie& cofetarie)
         std::cout << "Numar:";
         std::cin >> numar;
         ProdusSpecial p = cofetarie.GasesteProdusSpecial(denumire);
-        p.setNumar(numar);
+        p+=numar;
         comanda.AdaugaProdusSpecial(p);
     }
     //acum ca am preluat o comanda trebuie sa ii calculam pretul total si sa intrebam clientul daca doreste sa dea un avans
@@ -56,10 +56,14 @@ void CumparareProdus(Cofetarie& cofetarie)
 {
     std::string denumire;
     int numar;
-    std::cin>>denumire>>numar;
-    int cate_produse=cofetarie.getNumar(denumire);
-    if(cate_produse==0) {std::cout<<"Ne pare rau. Nu mai sunt produse de acest tip momentan!"<<std::endl; return;}
-    float pret=cofetarie.getPret(denumire);
+    std::cout << "Denumire: ";
+    std::cin >> denumire;
+    std::cout << std::endl;
+    std::cout << "Numar: ";
+    std::cin >> numar;
+    int cate_produse = cofetarie.getNumar(denumire);
+    if(cate_produse == 0) { std::cout<<"Ne pare rau. Nu mai sunt produse de acest tip momentan!"<<std::endl; return; }
+    float pret = cofetarie.getPret(denumire);
     if(numar > cate_produse)
     {
         cofetarie.ModificaProdus(denumire,cate_produse);
@@ -77,7 +81,7 @@ void AdaugaDinCuptor(Cofetarie& cofetarie)
 {
     std::string denumire;
     int nr;
-    std::cin>>denumire>>nr;
+    std::cin >> denumire >> nr;
     cofetarie.Cuptor(denumire,nr);
 }
 
@@ -85,8 +89,8 @@ void AdaugaDinCuptor(Cofetarie& cofetarie)
 void CalculeazaRestBaniComenzi(Cofetarie& cofetarie)
 {
    std::string nr_tel;
-   std::cin>>nr_tel;
-   float rest=cofetarie.CalculeazaRestBaniComenzi(nr_tel);
+   std::cin >> nr_tel;
+   float rest = cofetarie.CalculeazaRestBaniComenzi(nr_tel);
    std::cout<<"Restul de bani pe care trebuie sa il dati este: "<<rest<<" RON."<<std::endl;
 }
 
@@ -103,7 +107,9 @@ void AfiseazaProduseFaraAlergeni(Cofetarie& cofetarie)
     int n;
     std::string denumire;
     std::vector <std::string> ingrediente;
+    std::cout << "Numar de ingrediente alergenice: ";
     std::cin >> n;
+    std::cout << std::endl << "Ingrediente: ";
     for(int i=0; i<n; i++)
         {
             std::cin >> denumire;
@@ -120,7 +126,9 @@ void AfiseazaProduseFestive(Cofetarie& cofetarie)
     int n;
     std::string denumire;
     std::vector <std::string> sarbatori;
+    std::cout << "Numarul sarbatorilor: ";
     std::cin >> n;
+    std::cout << "Denumiri: ";
     for(int i=0; i<n; i++)
         {
             std::cin >> denumire;
@@ -150,7 +158,12 @@ int main()
         cofetarie.AdaugaProdusSpecial(p2);
     }
     cofetarie.getDenumiri();
-    PreiaComanda(cofetarie);
-    std::cout << cofetarie.CalculeazaRestBaniComenzi("0754562071");
+    //PreiaComanda(cofetarie);
+    //CumparareProdus(cofetarie);
+    //AdaugaDinCuptor(cofetarie);
+    //CalculeazaRestBaniComenzi(cofetarie);
+    //AdiseazaProduseDePost(cofetarie);
+    //AfiseazaProduseFaraAlergeni(cofetarie);
+    //AfiseazaProduseFestive(cofetarie);
     return 0;
 }

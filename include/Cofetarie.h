@@ -37,6 +37,7 @@ public:
     float CalculeazaRestBaniComenzi(std::string nr_tel);
     Produs GasesteProdus(std::string denumire);
     ProdusSpecial GasesteProdusSpecial(std::string denumire);
+    void ModficarePret(std::string denumire, const float nr);
     //DESTRUCTOR
     ~Cofetarie(){}
 };

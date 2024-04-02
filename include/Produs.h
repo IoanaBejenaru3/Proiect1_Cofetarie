@@ -30,7 +30,7 @@ public:
     std::string getDenumire();
     int getNumar();
     //SETTERS
-    void setNumar(const int nr);
+    void setPret(const float nr);
     //SUPRAINCARCAREA OPERATORILOR
     //operatorul +=
     Produs& operator+=(const int nr);
