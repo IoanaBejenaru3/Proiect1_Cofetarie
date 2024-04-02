@@ -31,6 +31,7 @@ public:
     int getNumar();
     //SETTERS
     void setPret(const float nr);
+    void setNumar(const int nr);
     //SUPRAINCARCAREA OPERATORILOR
     //operatorul +=
     Produs& operator+=(const int nr);
@@ -64,7 +65,7 @@ public:
     //GETTERS
     std::string getFestivitate();
     //SETTERS
-
+    
     //SUPRAINCARCAREA OPERATORILOR
     friend std::istream& operator>>(std::istream& is, ProdusSpecial& p);
     friend std::ostream& operator<<(std::ostream& os, const ProdusSpecial& p);

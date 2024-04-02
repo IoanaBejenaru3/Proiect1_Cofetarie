@@ -20,21 +20,23 @@ void PreiaComanda(Cofetarie& cofetarie)
     for(int i=0; i<numar_produse; i++)
     {
         std::cout << "Denumire: ";
-        std::cin >> denumire;
-        std::cout << "Numar:";
+        std::cin.get();
+        std::getline(std::cin, denumire);
+        std::cout << "Numar: ";
         std::cin >> numar;
         Produs p = cofetarie.GasesteProdus(denumire);
-        p+=numar; //ne folosim de operatorul supraincarcat pentru a evita definirea si utilizarea unui setter
+        p.setNumar(numar);
         comanda.AdaugaProdus(p);
     }
     for(int i=0; i<numar_produse_speciale; i++)
     {
         std::cout << "Denumire: ";
-        std::cin >> denumire;
+        std::cin.get();
+        std::getline(std::cin, denumire);
         std::cout << "Numar:";
         std::cin >> numar;
         ProdusSpecial p = cofetarie.GasesteProdusSpecial(denumire);
-        p+=numar;
+        p.setNumar(numar);
         comanda.AdaugaProdusSpecial(p);
     }
     //acum ca am preluat o comanda trebuie sa ii calculam pretul total si sa intrebam clientul daca doreste sa dea un avans
@@ -95,7 +97,7 @@ void CalculeazaRestBaniComenzi(Cofetarie& cofetarie)
 }
 
 //aceasta functie este pentru a-i prezenta clientului produsele care sunt de post si sunt valabile in cofetarie (adica numar!=0)
-void AfiseazaProduseDepost(Cofetarie& cofetarie)
+void AfiseazaProduseDePost(Cofetarie& cofetarie)
 {
     std::cout << "Produsele de post disponibile in cofetarie sunt: " << std::endl;
     cofetarie.getDenumiriDePost();
@@ -160,9 +162,11 @@ int main()
     cofetarie.getDenumiri();
     //PreiaComanda(cofetarie);
     //CumparareProdus(cofetarie);
-    //AdaugaDinCuptor(cofetarie);
+    std::cout<< "Aici" << cofetarie.getNumar("Ecler");
+    AdaugaDinCuptor(cofetarie);
+    std::cout<< "AICI" << cofetarie.getNumar("Ecler");
     //CalculeazaRestBaniComenzi(cofetarie);
-    //AdiseazaProduseDePost(cofetarie);
+    //AfiseazaProduseDePost(cofetarie);
     //AfiseazaProduseFaraAlergeni(cofetarie);
     //AfiseazaProduseFestive(cofetarie);
     return 0;

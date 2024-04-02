@@ -5,6 +5,15 @@
 #include <string>
 #include <locale>
 
+std::string upper(std::string denumire)  //aceasta functie evita erori: daca un citim de la tastatura amandina si produsul este salvat ca "Amandina"
+{                                        //functia upper ne ajuta sa le vedem pe ambele ca fiind egale prin transformarea tuturor caracterelor in majuscule
+    std::string denumire_noua;
+    denumire_noua=denumire;
+    for(char& c : denumire_noua)
+        c = std::toupper(c);
+    return denumire_noua;
+}
+
 //CONSTRUCTOR
 Cofetarie::Cofetarie(std::vector <Produs> p, std::vector <ProdusSpecial> ps, std::vector <Comanda> c, float cb): produse{p}, produse_speciale{ps}, comenzi{c}, cont_bancar{cb} {}
 
@@ -17,6 +26,8 @@ void Cofetarie::getDenumiri()
     std::cout << "Produsele disponibile in cofetarie sunt: " << std::endl;
     for(auto produs: this->produse)
         std::cout << "-" << produs.getDenumire() << std::endl;
+    std::cout << std::endl;
+    std::cout << "Produsele speciale disponibile in cofetarie sunt: " << std::endl;
       for(auto produs: this->produse_speciale)
         std::cout << "-" << produs.getDenumire() << std::endl;
     std::cout << std::endl;
@@ -76,8 +87,12 @@ float Cofetarie::getPret(std::string denumire)
 
  int Cofetarie::getNumar(std::string denumire)
  {
+    denumire = upper(denumire);
     for(auto produs: this->produse)
-        if(produs.getDenumire()==denumire)
+        if(upper(produs.getDenumire()) == denumire)
+              return produs.getNumar();
+    for(auto produs: this->produse_speciale)
+        if(upper(produs.getDenumire()) == denumire)
               return produs.getNumar();
     return -1;  //in cazul in care acel produs nu exista
  }
@@ -115,20 +130,17 @@ void Cofetarie::ModificaProdus(std::string denumire, const int nr)
     return;
 }
 
-std::string upper(std::string denumire)  //aceasta functie evita erori: daca un citim de la tastatura amandina si produsul este salvat ca "Amandina"
-{                                        //functia upper ne ajuta sa le vedem pe ambele ca fiind egale prin transformarea tuturor caracterelor in majuscule
-    std::string denumire_noua;
-    denumire_noua=denumire;
-    for(char& c : denumire_noua)
-        c = std::toupper(c);
-    return denumire_noua;
-}
-
 void Cofetarie::Cuptor(std::string denumire, const int nr)
 {
-    denumire=upper(denumire);
-     for(auto produs: this->produse)
-        if(upper(produs.getDenumire())==denumire)
+    denumire = upper(denumire);
+    for(auto produs : this->produse)
+        if(upper(produs.getDenumire()) == denumire)
+            {   
+                produs.setNumar(produs.getNumar()+nr);
+                return;
+            }
+    for(auto produs : this->produse_speciale)
+        if(upper(produs.getDenumire()) == denumire)
             {   
                 produs+=nr;
                 return;

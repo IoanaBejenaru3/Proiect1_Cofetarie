@@ -20,6 +20,7 @@ std::string ProdusSpecial::getFestivitate() { return this->festivitate; }
 //SETTERS
 
 void Produs::setPret(const float nr) { this->pret = nr; }
+void Produs::setNumar(const int nr) { this->numar = nr; }
 
 //OPERATORI
 Produs& Produs::operator+=(const int nr) { this->numar += nr; return *this; }
