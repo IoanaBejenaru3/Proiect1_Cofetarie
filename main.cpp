@@ -160,9 +160,17 @@ int main()
         cofetarie.AdaugaProdusSpecial(p2);
     }
     cofetarie.getDenumiri();
+
+    //METODELE DIN CADRUL CLASE COFETARIE PENTRU TESTARE:
+
     //PreiaComanda(cofetarie);
     //CumparareProdus(cofetarie);
+
+    //PENTRU A VERIFICATE DACA SE UPDATEAZA NR DE PRODUSE DE TIP DENUMIRE
+    //std::cout << cofetarie.getNumar("denumire_aleasa_din_cele_afisate") << std::endl;
     //AdaugaDinCuptor(cofetarie);
+    //std::cout << cofetarie.getNumar("denumire_aleasa_din_cele_afisate") << std::endl;
+
     //CalculeazaRestBaniComenzi(cofetarie);
     //AfiseazaProduseDePost(cofetarie);
     //AfiseazaProduseFaraAlergeni(cofetarie);
