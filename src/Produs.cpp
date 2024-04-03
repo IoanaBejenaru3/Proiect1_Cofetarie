@@ -48,9 +48,9 @@ std::istream& operator>>(std::istream& is, Produs& p)
         is >> ing;
         p.ingrediente_alergenice.push_back(ing);
     }
-    is>>p.numar;
-    is>>p.de_post;
-    is>>p.pret;
+    is >> p.numar;
+    is >> p.de_post;
+    is >> p.pret;
     //printf("numar = %d\tde_post = %d\tpret = %.2f\n", p.numar, p.de_post, p.pret);
     return is;
 }

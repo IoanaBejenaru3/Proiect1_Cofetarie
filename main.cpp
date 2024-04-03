@@ -12,12 +12,12 @@ void PreiaComanda(Cofetarie& cofetarie)
     Client client;
     std::string denumire;
 
-    std::cin>>client;
-    Comanda comanda={client}; //am construit comanda doar cu clientul si urmeaza sa adaugam detaliile comenzii si sa le calculam
+    std::cin >> client;
+    Comanda comanda = {client}; //am construit comanda doar cu clientul si urmeaza sa adaugam detaliile comenzii si sa le calculam
     int numar_produse, numar_produse_speciale, numar;
     std::cout << "Numarul de produse si de produse speciale in aceasta ordine: " << std::endl;
     std::cin >> numar_produse >> numar_produse_speciale;
-    for(int i=0; i<numar_produse; i++)
+    for(int i = 0; i < numar_produse; i++)
     {
         std::cout << "Denumire: ";
         std::cin.get();
@@ -28,7 +28,7 @@ void PreiaComanda(Cofetarie& cofetarie)
         p.setNumar(numar);
         comanda.AdaugaProdus(p);
     }
-    for(int i=0; i<numar_produse_speciale; i++)
+    for(int i = 0; i < numar_produse_speciale; i++)
     {
         std::cout << "Denumire: ";
         std::cin.get();
@@ -112,7 +112,7 @@ void AfiseazaProduseFaraAlergeni(Cofetarie& cofetarie)
     std::cout << "Numar de ingrediente alergenice: ";
     std::cin >> n;
     std::cout << std::endl << "Ingrediente: ";
-    for(int i=0; i<n; i++)
+    for(int i=0; i <n; i++)
         {
             std::cin >> denumire;
             ingrediente.push_back(denumire);
@@ -144,26 +144,26 @@ void AfiseazaProduseFestive(Cofetarie& cofetarie)
 int main()
 {
     //CEEA CE AVEM IN COFETARIE
-    Cofetarie cofetarie=Cofetarie();
+    Cofetarie cofetarie = Cofetarie();
     int numar_produse, numar_produse_speciale;
     std::cin >> numar_produse >> numar_produse_speciale;
     for(int i = 1; i <= numar_produse; i++)
     {
         Produs p1;
-        std::cin>>p1;
+        std::cin >> p1;
         cofetarie.AdaugaProdus(p1);
     }
     for(int i = 1; i <= numar_produse_speciale; i++)
     {
         ProdusSpecial p2;
-        std::cin>>p2;
+        std::cin >> p2;
         cofetarie.AdaugaProdusSpecial(p2);
     }
     cofetarie.getDenumiri();
 
     //METODELE DIN CADRUL CLASE COFETARIE PENTRU TESTARE:
 
-    //PreiaComanda(cofetarie);
+    // PreiaComanda(cofetarie);
     //CumparareProdus(cofetarie);
 
     //PENTRU A VERIFICATE DACA SE UPDATEAZA NR DE PRODUSE DE TIP DENUMIRE

@@ -8,7 +8,7 @@
 std::string upper(std::string denumire)  //aceasta functie evita erori: daca un citim de la tastatura amandina si produsul este salvat ca "Amandina"
 {                                        //functia upper ne ajuta sa le vedem pe ambele ca fiind egale prin transformarea tuturor caracterelor in majuscule
     std::string denumire_noua;
-    denumire_noua=denumire;
+    denumire_noua = denumire;
     for(char& c : denumire_noua)
         c = std::toupper(c);
     return denumire_noua;
@@ -119,27 +119,27 @@ void Cofetarie::AdaugaComanda(const Comanda& c)
 
 void Cofetarie::AdaugaBani(float bani)
 {
-    this->cont_bancar+=bani;
+    this->cont_bancar += bani;
 }
 
 void Cofetarie::ModificaProdus(std::string denumire, const int nr)
 {
     for(auto produs: this->produse)
-        if(produs.getDenumire()==denumire)
-            {produs-=nr; return;}
+        if(produs.getDenumire() == denumire)
+            {produs -= nr; return;}
     return;
 }
 
 void Cofetarie::Cuptor(std::string denumire, const int nr)
 {
     denumire = upper(denumire);
-    for(int i=0; i<this->produse.size(); i++)
+    for(int i = 0; i < this->produse.size(); i++)
         if(upper(produse[i].getDenumire()) == denumire)
             {   
                 produse[i]+=nr;
                 return;
             }
-    for(int i=0; i < this->produse_speciale.size(); i++)
+    for(int i = 0; i < this->produse_speciale.size(); i++)
         if(upper(produse_speciale[i].getDenumire()) == denumire)
             {   
                 produse_speciale[i]+=nr;
@@ -150,7 +150,7 @@ void Cofetarie::Cuptor(std::string denumire, const int nr)
 
 float Cofetarie::CalculeazaRestBaniComenzi(std::string nr_tel)
 {
-    float suma=0;
+    float suma = 0;
     for(auto comanda : comenzi)
         if(comanda.getNrTel()==nr_tel && comanda.getStatus()==1)
                 suma+=comanda.Diferenta();

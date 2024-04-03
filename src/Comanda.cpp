@@ -26,17 +26,17 @@ bool Comanda::getStatus()
 //SETTERS
 void Comanda::setPret()
 {
-    this->pret=Aduna();
+    this->pret = Aduna();
 }
 
 void Comanda::setAvans(const float avans)
 {
-    this->avans=avans;
+    this->avans = avans;
 }
 
  void Comanda::setStatus()
  {
-    this->status=1;
+    this->status = 1;
  }
 
 //OPERATORI
@@ -44,11 +44,11 @@ void Comanda::setAvans(const float avans)
 //METODE
 float Comanda::Aduna() 
 {   
-    float suma=0;
+    float suma = 0;
     for(auto produs : produse) 
-        suma+=produs.getPret()*produs.getNumar();
+        suma += produs.getPret()*produs.getNumar();
     for(auto produs_special : produse_speciale)
-        suma+=produs_special.getPret()*produs_special.getNumar();  //in cazul comenzilor numarul va reprezenta cate din acele produse vrea clientul
+        suma += produs_special.getPret()*produs_special.getNumar();  //in cazul comenzilor numarul va reprezenta cate din acele produse vrea clientul
     return suma;
 }
 
